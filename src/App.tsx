@@ -6,17 +6,12 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
 function App() {
-  const [currentView, setCurrentView] = useState('landing');
-  const navigateToDashboard = () => setCurrentView('dashboard');
-  const navigateToLanding = () => setCurrentView('landing');
+ 
 
   return (
     <div className="bg-white">
-      <Navbar onNavigateToDashboard={navigateToDashboard} onLogoClick={navigateToLanding} />
-      <main>
-        {currentView === 'landing' && <LandingPage />}
-        {currentView === 'dashboard' && <OpportunitiesDashboard />}
-      </main>
+      <Navbar/>
+      <OpportunitiesDashboard />
       <Footer />
     </div>
   );

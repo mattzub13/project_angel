@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.8.2",
+    "clsx": "^2.1.1",
     "leaflet": "^1.9.4",
     "motion": "^12.19.2",
     "primeicons": "^7.0.0",
@@ -19,7 +20,8 @@
     "react-dom": "^19.1.0",
     "react-leaflet": "^5.0.0",
     "react-redux": "^9.2.0",
-    "react-router-dom": "^7.6.3"
+    "react-router-dom": "^7.6.3",
+    "tailwind-merge": "^3.3.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.29.0",
