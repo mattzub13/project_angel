@@ -1,7 +1,9 @@
-
+import { HeroSection } from "./components/HeroSection"
 
 export const LandingPage = () => {
     return (
-        <div>LandingPage</div>
+        <div>
+            <HeroSection />
+        </div>
     )
 }
