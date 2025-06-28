@@ -30,7 +30,7 @@ const ProcessStep = ({ icon, title, description }: { icon: string; title:string;
 
 const HowItWorks = () => {
   return (
-    <section id="como-funciona" className="py-16 sm:py-24 bg-white">
+    <section id="como-funciona" className="py-16 sm:py-24 ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           
