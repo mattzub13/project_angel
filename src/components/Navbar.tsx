@@ -13,7 +13,7 @@ export const Navbar = ({ onNavigateToDashboard, onLogoClick }: NavbarProps) => {
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0 cursor-pointer" onClick={onLogoClick}>
             <span className="text-2xl font-bold text-blue_green-200">
-              A.L.A.S.
+              ALAS
             </span>
           </div>
           <div className="ml-4">

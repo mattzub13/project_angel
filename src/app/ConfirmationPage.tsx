@@ -8,7 +8,7 @@ const ConfirmationPage = () => {
           ¡Tu Interés ha sido Registrado con Éxito!
         </h2>
         <p className="text-lg text-gray-600 mb-6">
-          Gracias por tu confianza en A.L.A.S. y en las PYMES de nuestra comunidad.
+          Gracias por tu confianza en ALAS. y en las PYMES de nuestra comunidad.
         </p>
 
         <div className="text-left border-t border-b py-6">
