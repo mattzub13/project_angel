@@ -55,7 +55,7 @@ const PymeCard = ({ pyme }: { pyme: Pyme }) => {
           </div>
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <Button
-              label="Invertir Ahora"
+              label="Conoce Más"
               icon="pi pi-bolt"
               iconPos="right"
               className="bg-nyanza text-blue_green-100 font-bold border-none rounded-lg py-3 px-5 shadow-md hover:brightness-105"
