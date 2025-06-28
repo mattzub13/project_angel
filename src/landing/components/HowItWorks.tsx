@@ -52,7 +52,7 @@ const HowItWorks = () => {
             <ProcessStep 
               icon="pi pi-search"
               title="1. Descubre"
-              description="Explora un catálogo curado de PYMES con alto potencial."
+              description="Explora un catálogo curado de pequeños negocios con alto potencial."
             />
             <ProcessStep 
               icon="pi pi-chart-line"
