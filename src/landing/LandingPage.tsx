@@ -2,7 +2,7 @@ import { HeroSection } from "./components/HeroSection"
 
 export const LandingPage = () => {
     return (
-        <div>
+        <div className="bg-light_sky">
             <HeroSection />
         </div>
     )
