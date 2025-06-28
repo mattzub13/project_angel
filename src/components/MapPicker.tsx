@@ -1,57 +1,99 @@
-import { useState } from 'react';
-import { MapContainer, TileLayer, Marker, Popup, useMapEvents } from 'react-leaflet';
-import type { LatLngExpression } from 'leaflet';
-import { Icon } from 'leaflet';
-// Arreglo para un problema común con los íconos por defecto de Leaflet en React
-import iconUrl from 'leaflet/dist/images/marker-icon.png';
-import iconRetinaUrl from 'leaflet/dist/images/marker-icon-2x.png';
-import shadowUrl from 'leaflet/dist/images/marker-shadow.png';
-import 'leaflet/dist/leaflet.css';
+import { useState, useEffect } from "react";
+import {
+  MapContainer,
+  TileLayer,
+  Marker,
+  Popup,
+  useMap,
+  useMapEvents,
+} from "react-leaflet";
+import { type LatLngExpression, Icon } from "leaflet";
+import iconUrl from "leaflet/dist/images/marker-icon.png";
+import iconRetinaUrl from "leaflet/dist/images/marker-icon-2x.png";
+import shadowUrl from "leaflet/dist/images/marker-shadow.png";
+
 const DefaultIcon = new Icon({
-    iconUrl,
-    iconRetinaUrl,
-    shadowUrl,
-    iconSize: [25, 41],
-    iconAnchor: [12, 41],
-    popupAnchor: [1, -34],
-    shadowSize: [41, 41]
+  iconUrl,
+  iconRetinaUrl,
+  shadowUrl,
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  shadowSize: [41, 41],
 });
-// Este es un pequeño componente interno que maneja los clics en el mapa
-function LocationMarker({ onLocationSelect }: { onLocationSelect: (lat: number, lng: number) => void }) {
-    const [position, setPosition] = useState<LatLngExpression | null>(null);
-    // El hook 'useMapEvents' es la magia de react-leaflet. Escucha eventos del mapa.
-    const map = useMapEvents({
-        click(e) {
-            // Cuando el usuario hace clic, actualizamos la posición del marcador
-            setPosition(e.latlng);
-            // Y llamamos a la función que nos pasó el componente padre con las coordenadas
-            onLocationSelect(e.latlng.lat, e.latlng.lng);
-            map.flyTo(e.latlng, map.getZoom()); // Opcional: Centra el mapa en el clic
-        },
-    });
-    return position === null ? null : (
-        <Marker position={position} icon={DefaultIcon}>
-            <Popup>Has seleccionado esta ubicación.</Popup>
+
+const UserLocationIcon = new Icon({
+  iconUrl:
+    "data:image/svg+xml;base64," +
+    btoa(
+      '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#007bff" width="48px" height="48px"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5-2.5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>'
+    ),
+  iconSize: [32, 32],
+  iconAnchor: [16, 32],
+  popupAnchor: [0, -32],
+});
+
+function ChangeView({
+  center,
+  zoom,
+}: {
+  center: LatLngExpression;
+  zoom: number;
+}) {
+  const map = useMap();
+  useEffect(() => {
+    map.setView(center, zoom);
+  }, [center, zoom, map]);
+  return null;
+}
+
+function LocationMarker({
+  onLocationSelect,
+}: {
+  onLocationSelect: (lat: number, lng: number) => void;
+}) {
+  const [position, setPosition] = useState<LatLngExpression | null>(null);
+  useMapEvents({
+    click(e) {
+      setPosition(e.latlng);
+      onLocationSelect(e.latlng.lat, e.latlng.lng);
+    },
+  });
+
+  return position === null ? null : (
+    <Marker position={position} icon={DefaultIcon}>
+      <Popup>Ubicación seleccionada.</Popup>
+    </Marker>
+  );
+}
+
+interface MapPickerProps {
+  onLocationSelect: (lat: number, lng: number) => void;
+  center: LatLngExpression;
+  userLocation: LatLngExpression | null;
+}
+
+export const MapPicker = ({
+  onLocationSelect,
+  center,
+  userLocation,
+}: MapPickerProps) => {
+  return (
+    <MapContainer
+      center={center}
+      zoom={13}
+      style={{ height: "400px", width: "100%" }}
+      className="rounded-xl"
+    >
+      <ChangeView center={center} zoom={13} />
+      <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+      <LocationMarker onLocationSelect={onLocationSelect} />
+
+      {userLocation && (
+        <Marker position={userLocation} icon={UserLocationIcon}>
+          <Popup>¡Estás aquí wachin!</Popup>
         </Marker>
-    );
-}
-// El componente principal del mapa que exportaremos
-interface InteractiveMapProps {
-    onLocationSelect: (lat: number, lng: number) => void;
-}
-export const MapPicker = ({ onLocationSelect }: InteractiveMapProps) => {
-    // Coordenadas de Santa Cruz de la Sierra para centrar el mapa inicialmente
-    const initialPosition: LatLngExpression = [-17.7833, -63.1821];
-    return (
-        // MapContainer crea el mapa. Le damos un alto fijo o no se verá.
-        <MapContainer center={initialPosition} zoom={13} style={{ height: '400px', width: '100%' }} className="rounded-xl">
-            {/* TileLayer es la capa que muestra las calles, edificios, etc. Usamos OpenStreetMap que es gratis. */}
-            <TileLayer
-                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            />
-            {/* Aquí llamamos a nuestro componente que maneja los clics */}
-            <LocationMarker onLocationSelect={onLocationSelect} />
-        </MapContainer>
-    );
+      )}
+    </MapContainer>
+  );
 };

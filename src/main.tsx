@@ -5,6 +5,7 @@ import './index.css'
 import 'primereact/resources/themes/lara-light-indigo/theme.css';   
 import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
+import 'leaflet/dist/leaflet.css';
 
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
