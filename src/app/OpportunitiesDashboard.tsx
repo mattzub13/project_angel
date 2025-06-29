@@ -10,7 +10,7 @@ import { fadeInFromBottom, staggerContainer } from "../utils/animatios";
 import { useDispatch } from "react-redux";
 import { changeLocation, type LocationState } from "../services/locationSlice";
 import type { AppDispatch } from "../services/store";
-import { useGetPlaces } from "../services/useGetPlaces";
+//import { useGetPlaces } from "../services/useGetPlaces";
 import { FlipWords } from "../components/FlipWords";
 
 export interface Pyme {
@@ -127,7 +127,7 @@ const OpportunitiesDashboard = () => {
     });
   };
   const dispatch = useDispatch<AppDispatch>();
-  const { data } = useGetPlaces();
+  //const { data } = useGetPlaces();
   const handleSearch = () => {
     if (latitude == "" || longitude == "") { return }
     const data: LocationState = {
