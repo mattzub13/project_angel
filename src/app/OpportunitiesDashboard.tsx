@@ -93,7 +93,7 @@ const OpportunitiesDashboard = () => {
       id: "pyme-456",
       nombre: 'Café "El Rincón Lector"',
       categoria: "Cafetería",
-      rating: 78,
+      rating: 79,
       descripcionCorta: "Un espacio acogedor...",
       necesidad: "Necesitan $800...",
       amount: 800,
