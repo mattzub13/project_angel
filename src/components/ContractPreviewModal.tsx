@@ -57,14 +57,14 @@ const ContractPreviewModal = ({
       visible={visible}
       onHide={onHide}
       modal
-      className="w-11/12 max-w-7xl"
+      className="w-12/12 max-w-8xl"
       header={
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 bg-gradient-to-br from-blue_green to-verdigris rounded-lg flex items-center justify-center">
             <i className="pi pi-file-pdf text-white text-lg"></i>
           </div>
           <div>
-            <h2 className="text-xl font-bold text-space_cadet">Vista Previa del Contrato</h2>
+            <h2 className="text-xl font-bold text-space_cadet">Generar Contrato</h2>
             <p className="text-sm text-gray-500">Revisa y descarga el contrato generado</p>
           </div>
         </div>
@@ -89,10 +89,10 @@ const ContractPreviewModal = ({
       draggable={false}
       resizable={false}
       blockScroll={true}
-      closeOnEscape={false}
-      closable={false}
+      closeOnEscape={true}
+      closable={true}
     >
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 h-[80vh]">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 h-[85vh]">
         {/* Lado izquierdo - Texto del contrato */}
         <div className="bg-light_sky rounded-xl p-6 border border-gray-200">
           <div className="flex items-center gap-3 mb-4">
