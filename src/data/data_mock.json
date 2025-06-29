@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "title": "Invierte en tu Comunidad",
+    "description": "Descubre proyectos locales con alto potencial de crecimiento y sé parte de su éxito.",
+    "icon": "pi pi-chart-line",
+    "ctaText": "Ver Oportunidades"
+  },
+  {
+    "id": 2,
+    "title": "¿Tienes una PYME?",
+    "description": "Consigue el capital que necesitas para llevar tu negocio al siguiente nivel con A.L.A.S.",
+    "icon": "pi pi-building",
+    "ctaText": "Registra tu Negocio"
+  },
+  {
+    "id": 3,
+    "title": "Inteligencia Artificial a tu Servicio",
+    "description": "Nuestro sistema analiza cientos de variables para ofrecerte los ratings de inversión más confiables.",
+    "icon": "pi pi-microchip",
+    "ctaText": "Conoce la Tecnología"
+  }
+]

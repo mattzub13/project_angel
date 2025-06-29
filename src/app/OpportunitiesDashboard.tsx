@@ -18,7 +18,7 @@ export interface Pyme {
   nombre: string;
   categoria: string;
   rating: number;
-  amount: number;
+  //amount: number;
   descripcionCorta: string;
   necesidad: string;
 }
@@ -80,32 +80,77 @@ const PymeCard = ({ pyme }: { pyme: Pyme }) => {
 
 const OpportunitiesDashboard = () => {
   const [pymes] = useState<Pyme[]>([
-    {
-      id: "pyme-123",
-      nombre: 'Salteñería "El Prado"',
+   {
+      id: "pyme-101",
+      nombre: 'Salteñería "El Cristo"',
       categoria: "Restaurante",
-      rating: 85,
-      descripcionCorta: "Las salteñeras más queridas...",
-      necesidad: "Buscan $1,500...",
-      amount: 1500,
+      rating: 92,
+      descripcionCorta: "Las famosas salteñas jugosas cerca del monumento, un clásico de los domingos.",
+      necesidad: "Renovación del letrero luminoso y compra de 2 hornos semi-industriales.",
+     // amount: 2200,
     },
     {
-      id: "pyme-456",
-      nombre: 'Café "El Rincón Lector"',
+      id: "pyme-202",
+      nombre: 'Majadito "El Camba"',
+      categoria: "Restaurante",
+      rating: 88,
+      descripcionCorta: "El auténtico sabor del majao de charque, batido y tostado, como hecho en casa.",
+      necesidad: "Adquisición de una moto para iniciar servicio de delivery en la zona norte.",
+      //amount: 950,
+    },
+    {
+      id: "pyme-303",
+      nombre: "Café de la Siesta - Equipetrol",
       categoria: "Cafetería",
       rating: 79,
       descripcionCorta: "Un espacio acogedor...",
       necesidad: "Necesitan $800...",
-      amount: 800,
+      //amount: 800,
     },
     {
-      id: "pyme-789",
-      nombre: 'Taller "El Rayo Veloz"',
+      id: "pyme-404",
+      nombre: "Helados 'Maná' - Doble vía la guardia",
+      categoria: "Heladería",
+      rating: 95,
+      descripcionCorta: "Helados de pura fruta de temporada: achachairú, guayabera, manga y más.",
+      necesidad: "Compra de un nuevo congelador de exhibición para ampliar la oferta de sabores.",
+      //amount: 1800,
+    },
+    {
+      id: "pyme-505",
+      nombre: "InnovaSoft Camba",
+      categoria: "Tecnología",
+      rating: 98,
+      descripcionCorta: "Pequeña consultora de software creando sistemas de punto de venta para PYMES.",
+      necesidad: "Capital para el lanzamiento de su nueva app de gestión de inventario 'MiTienda'.",
+     // amount: 5000,
+    },
+    {
+      id: "pyme-606",
+      nombre: "Artesanías 'Manos de Chiquitos'",
+      categoria: "Retail",
+      rating: 82,
+      descripcionCorta: "Hamacas, tallados en madera y tejidos únicos de la región chiquitana.",
+      necesidad: "Fondos para comprar materia prima y participar en la FEXPOCRUZ.",
+      //amount: 700,
+    },
+    {
+      id: "pyme-707",
+      nombre: "Lava-Autos 'El Chubi'",
       categoria: "Servicios",
-      rating: 91,
-      descripcionCorta: "Mecánica de confianza...",
-      necesidad: "Inversión de $2,500...",
-      amount: 2500,
+      rating: 86,
+      descripcionCorta: "Servicio de limpieza detallado para vehículos. ¡Tu auto queda chubi-dubí!",
+      necesidad: "Instalación de un sistema de reciclaje de agua para ser más ecológicos.",
+      //amount: 2800,
+    },
+    {
+      id: "pyme-808",
+      nombre: "Biomarket Urubó",
+      categoria: "Salud",
+      rating: 90,
+      descripcionCorta: "Mercado de productos orgánicos, sin gluten y veganos en la zona del Urubó.",
+      necesidad: "Importación de una nueva línea de suplementos y vitaminas de EEUU.",
+      //amount: 4500,
     },
   ]);
 

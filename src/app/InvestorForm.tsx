@@ -1,46 +1,71 @@
-import { InputText } from "primereact/inputtext";
-import { FloatLabel } from "primereact/floatlabel";
-import { Button } from "primereact/button";
-import { Dropdown } from 'primereact/dropdown';
-import { Checkbox } from 'primereact/checkbox';
-import { useState } from 'react';
+import { Button } from 'primereact/button';
+import { motion } from 'framer-motion';
 import type { Pyme } from './OpportunitiesDashboard'; 
+import { Tag } from 'primereact/tag';
+
 interface InvestorFormProps {
   pyme: Pyme;
   onFormSubmit: () => void;
 }
 
 const InvestorForm = ({ pyme, onFormSubmit }: InvestorFormProps) => {
-  const [checked, setChecked] = useState<boolean>(false);
-  const investmentRanges = [
-    { label: '$100 - $500', value: '100-500' },
-    { label: '$501 - $2000', value: '501-2000' },
-    { label: 'Más de $2000', value: '2000+' }
-  ];
-
   const handleSubmit = () => {
-    alert(`Interés registrado para ${pyme.nombre}!`);
+    console.log(`Interés confirmado para la pyme: ${pyme.id} - ${pyme.nombre}`);
     onFormSubmit();
   }
 
   return (
-    <div className="w-full p-4">
-        <div className="text-center">
-          <p className="text-gray-600 mb-8">
-            Estás a un paso de invertir en <strong className="text-blue_green">{pyme.nombre}</strong>.
-          </p>
+    <motion.div 
+      className="w-full p-4 text-center"
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+    >
+        <i className="pi pi-briefcase text-5xl text-verdigris mb-4"></i>
+      
+        <h3 className="text-2xl font-bold text-space_cadet mb-2">
+            Confirmar Interés de Inversión
+        </h3>
+
+        <p className="text-gray-600 mb-6">
+            Estás a un paso de apoyar a <strong className="text-blue_green">{pyme.nombre}</strong>.
+        </p>
+
+        <div className="bg-light_sky p-6 rounded-xl border border-gray-200 text-left">
+            <h4 className="font-bold text-secondary mb-3">Resumen de la Oportunidad:</h4>
+            <ul className="space-y-2 text-secondary">
+                <li className="flex justify-between">
+                    <span>Negocio:</span>
+                    <strong className="text-right">{pyme.nombre}</strong>
+                </li>
+                <li className="flex justify-between">
+                    <span>Categoría:</span>
+                    <Tag value={pyme.categoria} className="bg-blue_green text-white font-bold" />
+                </li>
+ {/*                <li className="flex justify-between">
+                    <span>Necesidad de Capital:</span>
+                    <strong className="text-right">${pyme.amount.toLocaleString('en-US')}</strong>
+                </li> */}
+                <li className="flex justify-between">
+                    <span>Propósito:</span>
+                    <strong className="text-right">{pyme.necesidad}</strong>
+                </li>
+            </ul>
         </div>
-        <div className="flex flex-col gap-8">
-          <FloatLabel><InputText id="fullname" className="w-full" /><label htmlFor="fullname">Nombre Completo</label></FloatLabel>
-          <FloatLabel><InputText id="email" type="email" className="w-full" /><label htmlFor="email">Correo Electrónico</label></FloatLabel>
-          <FloatLabel><Dropdown inputId="investmentAmount" options={investmentRanges} className="w-full" /><label htmlFor="investmentAmount">Monto a invertir</label></FloatLabel>
-        </div>
-        <div className="flex items-center mt-8">
-          <Checkbox inputId="terms" onChange={e => setChecked(e.checked ?? false)} checked={checked}></Checkbox>
-          <label htmlFor="terms" className="ml-2 text-sm text-gray-600">Acepto los Términos y entiendo los riesgos.</label>
-        </div>
-        <Button label="Enviar Interés" className="w-full mt-6 p-button-lg bg-blue_green" onClick={handleSubmit} disabled={!checked} />
-    </div>
+
+        <p className="text-xs text-gray-500 mt-6">
+            Al confirmar, un asesor de A.L.A.S. se pondrá en contacto contigo para completar el proceso de verificación (KYC) y formalizar la inversión de manera segura.
+        </p>
+        
+        {/* El botón de acción final */}
+        <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="mt-6">
+            <Button 
+                label="Sí, confirmo mi interés" 
+                className="bg-cream text-blue_green-100 font-bold border-none rounded-lg py-3 px-5 shadow-md hover:brightness-105" 
+                onClick={handleSubmit} 
+            />
+        </motion.div>
+    </motion.div>
   );
 };
 
