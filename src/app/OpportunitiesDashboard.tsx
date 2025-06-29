@@ -85,10 +85,13 @@ const PymeCard = ({ pyme }: { pyme: Pyme }) => {
       <Dialog
         header={open ? `Invertir en ${pyme.nombre}` : "Generar Contrato"}
         visible={open}
-        onHide={() => setOpen(false)}
-        style={{ width: "95vw", maxWidth: "800px" }}
+        onHide={() => {}}
+        style={{ width: "95vw", maxWidth: "1200px" }}
         className="rounded-2xl p-0"
         contentClassName="p-0"
+        closable={true}
+        blockScroll={false}
+        maximizable={true}
       >
         <InvestorForm pyme={pyme} onFormSubmit={() => setOpen(false)} />
       </Dialog>

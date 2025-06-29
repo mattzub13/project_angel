@@ -273,14 +273,18 @@ export const UploadFile = ({
             )}
             <Dialog
                 visible={showUploadModal}
-                onHide={closeDialog}
+                onHide={() => {
+                    if (!isUploading && !uploadSuccess) {
+                        closeDialog();
+                    }
+                }}
                 header={uploadSuccess ? null : <>{cardTitle}</>}
                 footer={renderDialogFooter()}
                 closable={!isUploading && !uploadSuccess}
                 showHeader={!uploadSuccess}
                 contentClassName="p-0"
                 headerClassName="bg-white border-b border-neutral-gray p-4"
-                className="w-full max-w-xl"
+                className="w-full max-w-4xl"
                 breakpoints={{ "960px": "90vw", "640px": "95vw" }}
             >
                 <Toast ref={toast} />
