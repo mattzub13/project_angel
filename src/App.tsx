@@ -1,5 +1,3 @@
-import { useState } from 'react';
-import { LandingPage } from './landing/LandingPage';
 import OpportunitiesDashboard from './app/OpportunitiesDashboard';
 import './App.css';
 import Navbar from './components/Navbar';

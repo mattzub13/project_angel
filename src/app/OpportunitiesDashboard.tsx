@@ -3,7 +3,6 @@ import { Button } from "primereact/button";
 import { Tag } from "primereact/tag";
 import { motion } from "framer-motion";
 import { Dialog } from "primereact/dialog";
-import { InputText } from "primereact/inputtext";
 import { Knob } from "primereact/knob";
 import InvestorForm from "./InvestorForm";
 import { MapPicker } from "../components/MapPicker";

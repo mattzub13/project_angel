@@ -9,7 +9,7 @@ export const useGetPlaces = () => {
     lng: state.location.lng,
   }));
 
-  const [getAllPlaces, { data, error,isLoading }] = useGetAllPlacesMutation();
+  const [getAllPlaces, { data, error }] = useGetAllPlacesMutation();
 
   useEffect(() => {
     if (lat && lng) {
