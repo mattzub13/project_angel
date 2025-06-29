@@ -8,6 +8,11 @@ import { Knob } from "primereact/knob";
 import InvestorForm from "./InvestorForm";
 import { MapPicker } from "../components/MapPicker";
 import { fadeInFromBottom, staggerContainer } from "../utils/animatios";
+import { useDispatch } from "react-redux";
+import { changeLocation, type LocationState } from "../services/locationSlice";
+import type { AppDispatch } from "../services/store";
+import { useGetPlaces } from "../services/useGetPlaces";
+import { FlipWords } from "../components/FlipWords";
 
 export interface Pyme {
   id: string;
@@ -24,18 +29,18 @@ const PymeCard = ({ pyme }: { pyme: Pyme }) => {
   return (
     <motion.div variants={fadeInFromBottom} className="h-full">
       <motion.div
-        className="p-6 rounded-2xl h-full flex flex-col bg-light_sky shadow-lg hover:shadow-xl"
+        className="p-6 rounded-2xl h-full flex flex-col bg-space_cadet shadow-lg hover:shadow-xl"
         whileHover={{ y: -8 }}
       >
         <div className="flex-grow">
           <Tag
             value={pyme.categoria}
-            className="bg-blue_green text-white font-bold"
+            className="bg-verdigris text-white font-bold"
           />
-          <h3 className="text-2xl font-bold my-3 text-blue_green-200">
+          <h3 className="text-2xl font-bold my-3 text-white">
             {pyme.nombre}
           </h3>
-          <p className="text-gray-600 text-sm mb-4">{pyme.descripcionCorta}</p>
+          <p className="text-white text-sm mb-4">{pyme.descripcionCorta}</p>
           <p className="font-semibold text-blue_green">{pyme.necesidad}</p>
         </div>
         <div className="mt-6 pt-4 border-t border-light_blue-600/20 flex items-center justify-between">
@@ -58,7 +63,7 @@ const PymeCard = ({ pyme }: { pyme: Pyme }) => {
               label="Conoce Más"
               icon="pi pi-bolt"
               iconPos="right"
-              className="bg-nyanza text-blue_green-100 font-bold border-none rounded-lg py-3 px-5 shadow-md hover:brightness-105"
+              className="bg-cream text-blue_green-100 font-bold border-none rounded-lg py-3 px-5 shadow-md hover:brightness-105"
               onClick={() => setOpen(true)}
             />
           </motion.div>
@@ -122,19 +127,46 @@ const OpportunitiesDashboard = () => {
       setUserLocation([pos.coords.latitude, pos.coords.longitude]);
     });
   };
+  const dispatch = useDispatch<AppDispatch>();
+  const { data } = useGetPlaces();
+  const handleSearch = () => {
+    if (latitude == "" || longitude == "") { return }
+    const data: LocationState = {
+      lat: parseFloat(latitude),
+      lng: parseFloat(longitude)
+    }
+    dispatch(changeLocation(data))
+  }
+  const words = [
+    "Apoyo",
+    "Legado",
+    "Ascenso",
+    "Sostenibilidad"
+  ]
 
   return (
     <div className="p-4 sm:p-8 bg-white">
-      <div className="text-center mb-12">
-        <h1 className="text-4xl md:text-5xl font-black text-blue_green-100">
-          Oportunidades de Inversión
-        </h1>
+      <div className="text-center mb-3">
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          className="text-3xl  sm:text-4xl md:text-5xl "
+        >
+          Oportunidad para obtener
+          <br className="hidden sm:inline" />
+          <FlipWords
+            words={words}
+            className="text-space_cadet md:mt-4 font-semibold"
+            duration={2500}
+          />
+        </motion.h1>
         <p className="text-lg text-secondary mt-2">
           Busca en el mapa o explora nuestro catálogo.
         </p>
       </div>
-      <div className="max-w-5xl mx-auto mb-16 p-6 bg-nyanza rounded-2xl shadow-lg">
-        <h2 className="text-2xl font-bold mb-4 text-secondary">
+      <div className="max-w-5xl mx-auto mb-16 p-6 bg-space_cadet rounded-2xl shadow-lg">
+        <h2 className="text-2xl text-white font-bold mb-4 text-secondary">
           Busca por Ubicación
         </h2>
         <MapPicker
@@ -147,25 +179,18 @@ const OpportunitiesDashboard = () => {
             setUserLocation(null);
           }}
         />
-        <div className="flex items-center gap-4 mt-4">
-          <InputText
-            value={latitude}
-            placeholder="Latitud"
-            disabled
-            className="flex-1"
-          />
-          <InputText
-            value={longitude}
-            placeholder="Longitud"
-            disabled
-            className="flex-1"
-          />
+        <div className="flex items-center gap-4 ">
+
+          <Button onClick={handleSearch} label="Buscar" className="py-3 bg-cream px-5 my-4" />
           <Button
             icon="pi pi-map-marker"
             onClick={handleGeolocate}
             tooltip="Usar mi ubicación"
-            className="p-button-outlined"
+            className="p-button-outlined text-white text-2xl"
           />
+        </div>
+        <div className="flex flex-col justify-center items-center">
+
         </div>
       </div>
       <motion.div
