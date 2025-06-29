@@ -36,9 +36,7 @@ const PymeCard = ({ pyme }: { pyme: Pyme }) => {
             value={pyme.categoria}
             className="bg-verdigris text-white font-bold"
           />
-          <h3 className="text-2xl font-bold my-3 text-white">
-            {pyme.nombre}
-          </h3>
+          <h3 className="text-2xl font-bold my-3 text-white">{pyme.nombre}</h3>
           <p className="text-white text-sm mb-4">{pyme.descripcionCorta}</p>
           <p className="font-semibold text-blue_green">{pyme.necesidad}</p>
         </div>
@@ -129,19 +127,16 @@ const OpportunitiesDashboard = () => {
   const dispatch = useDispatch<AppDispatch>();
   //const { data } = useGetPlaces();
   const handleSearch = () => {
-    if (latitude == "" || longitude == "") { return }
+    if (latitude == "" || longitude == "") {
+      return;
+    }
     const data: LocationState = {
       lat: parseFloat(latitude),
-      lng: parseFloat(longitude)
-    }
-    dispatch(changeLocation(data))
-  }
-  const words = [
-    "Apoyo",
-    "Legado",
-    "Ascenso",
-    "Sostenibilidad"
-  ]
+      lng: parseFloat(longitude),
+    };
+    dispatch(changeLocation(data));
+  };
+  const words = ["Apoyo", "Legado", "Ascenso", "Sostenibilidad"];
 
   return (
     <div className="p-4 sm:p-8 bg-white">
@@ -179,18 +174,23 @@ const OpportunitiesDashboard = () => {
           }}
         />
         <div className="flex items-center gap-4 ">
-
-          <Button onClick={handleSearch} label="Buscar" className="py-3 bg-cream px-5 my-4" />
-          <Button
-            icon="pi pi-map-marker"
-            onClick={handleGeolocate}
-            tooltip="Usar mi ubicación"
-            className="p-button-outlined text-white text-2xl"
-          />
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <Button
+              onClick={handleSearch}
+              label="Buscar"
+              className="py-3 bg-cream px-5 my-4"
+            />
+          </motion.div>
+         <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <Button
+              onClick={handleGeolocate}
+              icon="pi pi-map-marker"
+              label="Usa tu ubicación"
+              className="py-3 bg-cream px-5 my-4"
+            />
+          </motion.div>
         </div>
-        <div className="flex flex-col justify-center items-center">
-
-        </div>
+        <div className="flex flex-col justify-center items-center"></div>
       </div>
       <motion.div
         className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8"

@@ -1,6 +1,4 @@
-import { motion } from "motion/react";
-import { Button } from "primereact/button";
-
+import Alas3D from "../landing/components/Alas3D";
 
 export const Navbar = () => {
   return (
@@ -8,20 +6,10 @@ export const Navbar = () => {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0 cursor-pointer">
-            <span className="text-4xl font-bold ">
-              ALAS
-            </span>
+            <span className="text-4xl font-bold ">ALAS</span>
           </div>
-          <div className="ml-4">
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button
-                label="Conocer más"
-                icon="pi pi-arrow-right"
-                iconPos="right"
-                className="bg-cream text-blue_green-100 font-bold border-none rounded-lg py-2 px-5 shadow-md hover:brightness-105"
-
-              />
-            </motion.div>
+          <div className="mt-6">
+            <Alas3D />
           </div>
         </div>
       </nav>
