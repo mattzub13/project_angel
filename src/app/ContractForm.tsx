@@ -64,7 +64,7 @@ const ContractForm = ({ pyme, onClose }: ContractFormProps) => {
 
     setIsGenerating(true);
     
-    // Simular generación del contrato - tiempo reducido
+    // Simular generación del contrato y abrir preview directamente
     setTimeout(() => {
       const contractText = `
 CONTRATO DE PRÉSTAMO ENTRE INVERSOR Y PYME
@@ -97,6 +97,9 @@ Este contrato ha sido generado automáticamente por el sistema ALAS.
       
       setGeneratedContract(contractText);
       setIsGenerating(false);
+      
+      // Abrir preview directamente después de generar
+      setShowPreviewModal(true);
     }, 500);
   };
 
@@ -175,34 +178,7 @@ Este contrato ha sido generado automáticamente por el sistema ALAS.
                 disabled={isGenerating}
               />
             </motion.div>
-            
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button
-                label="Ver Preview"
-                icon="pi pi-eye"
-                className="bg-gradient-to-r from-cream to-cream/90 text-space_cadet font-bold border-none rounded-xl py-3 px-6 shadow-lg hover:shadow-xl transition-all duration-300"
-                onClick={openPreviewModal}
-                disabled={!generatedContract}
-              />
-            </motion.div>
           </div>
-
-          {/* Texto generado por IA con efecto typewriter */}
-          {generatedContract && (
-            <div className="mt-6 p-4 bg-gradient-to-br from-blue_green/10 to-verdigris/10 rounded-xl border border-blue_green/20">
-              <h4 className="font-bold text-blue_green mb-3 flex items-center">
-                <span className="mr-2">🤖</span>
-                Contrato Generado por IA
-              </h4>
-              <div className="bg-white p-4 rounded-lg border border-gray-200 max-h-96 overflow-y-auto">
-                <TypewriterText 
-                  text={generatedContract}
-                  speed={30}
-                  className="text-sm text-gray-700 whitespace-pre-wrap font-mono leading-relaxed"
-                />
-              </div>
-            </div>
-          )}
 
           {/* Botón cerrar */}
           <div className="flex justify-center pt-4">
