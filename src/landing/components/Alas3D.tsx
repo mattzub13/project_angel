@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 
 const Alas3D = () => {
   return (
-    <div className="flex flex-col items-center cursor-pointer group">
       <div style={{ perspective: 800 }}>
         <motion.img
           src="/alas.png"
@@ -17,7 +16,6 @@ const Alas3D = () => {
           }}
         />
       </div>
-    </div>
   );
 };
 

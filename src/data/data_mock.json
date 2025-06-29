@@ -1,23 +1,187 @@
-[
-  {
-    "id": 1,
-    "title": "Invierte en tu Comunidad",
-    "description": "Descubre proyectos locales con alto potencial de crecimiento y sé parte de su éxito.",
-    "icon": "pi pi-chart-line",
-    "ctaText": "Ver Oportunidades"
-  },
-  {
-    "id": 2,
-    "title": "¿Tienes una PYME?",
-    "description": "Consigue el capital que necesitas para llevar tu negocio al siguiente nivel con A.L.A.S.",
-    "icon": "pi pi-building",
-    "ctaText": "Registra tu Negocio"
-  },
-  {
-    "id": 3,
-    "title": "Inteligencia Artificial a tu Servicio",
-    "description": "Nuestro sistema analiza cientos de variables para ofrecerte los ratings de inversión más confiables.",
-    "icon": "pi pi-microchip",
-    "ctaText": "Conoce la Tecnología"
-  }
-]
+{
+  "pymes": [
+    {
+      "id": "pyme-101",
+      "nombre": "Salteñería \"El Cristo\"",
+      "categoria": "Restaurante",
+      "rating": 92,
+      "descripcionCorta": "Las famosas salteñas jugosas cerca del monumento, un clásico de los domingos.",
+      "necesidad": "Renovación del letrero luminoso y compra de 2 hornos semi-industriales.",
+      "ubicacion": {
+        "lat": -17.7833,
+        "lng": -63.1821
+      },
+      "montoNecesario": 2200,
+      "ai_analysis": {
+        "success": true,
+        "analysis": {
+          "relevance_score": 94,
+          "analysis_summary": "📍 Ubicación estratégica cerca del monumento con 4.6/5 rating y 200+ reseñas positivas. 📈 Los datos muestran picos del 85% los domingos, confirmando su estatus de tradición familiar. La demanda es consistente durante la semana laboral con 65% ocupación promedio. La inversión en hornos semi-industriales aumentará la producción en un 40% y reducirá costos operativos significativamente. El letrero luminoso mejorará la visibilidad nocturna, capturando el mercado de cena. Con estas mejoras, el ROI proyectado es del 180% en 18 meses. ¡Una oportunidad sólida con potencial de expansión! 🚀"
+        }
+      }
+    },
+    {
+      "id": "pyme-202",
+      "nombre": "Majadito \"El Camba\"",
+      "categoria": "Restaurante",
+      "rating": 88,
+      "descripcionCorta": "El auténtico sabor del majao de charque, batido y tostado, como hecho en casa.",
+      "necesidad": "Adquisición de una moto para iniciar servicio de delivery en la zona norte.",
+      "ubicacion": {
+        "lat": -17.7833,
+        "lng": -63.1821
+      },
+      "montoNecesario": 950,
+      "ai_analysis": {
+        "success": true,
+        "analysis": {
+          "relevance_score": 87,
+          "analysis_summary": "🍽️ Comida tradicional auténtica con 4.3/5 rating y 120 reseñas destacadas. 📦 El análisis de demanda revela que el 70% de sus clientes actuales provienen de la zona norte, creando una oportunidad perfecta para el servicio de delivery. La adquisición de la moto permitirá capturar el 40% del mercado de delivery en esa zona específica, incrementando las ventas en un 60%. Los horarios de mayor demanda entre 12:00-14:00 coinciden perfectamente con el servicio a domicilio. La inversión se recuperará en 8 meses con un ROI del 140%. ¡Una expansión estratégica con bajo riesgo y alto potencial de crecimiento! 🚀"
+        }
+      }
+    },
+    {
+      "id": "pyme-303",
+      "nombre": "Café de la Siesta - Equipetrol",
+      "categoria": "Cafetería",
+      "rating": 79,
+      "descripcionCorta": "Un espacio acogedor para disfrutar del mejor café de la ciudad.",
+      "necesidad": "Necesitan $800 para renovar la terraza y comprar nueva maquinaria.",
+      "ubicacion": {
+        "lat": -17.7833,
+        "lng": -63.1821
+      },
+      "montoNecesario": 800,
+      "ai_analysis": {
+        "success": true,
+        "analysis": {
+          "relevance_score": 76,
+          "analysis_summary": "☕ Calificación actual de 3.8/5 con 85 reseñas indica un negocio estable pero con potencial de crecimiento significativo. 🏢 La terraza actual solo utiliza el 45% de su capacidad debido a limitaciones de equipamiento. La renovación permitirá aumentar la capacidad en un 80% y capturar el mercado de trabajo remoto que representa el 35% de la zona. La nueva maquinaria mejorará la calidad del café, incrementando las ventas en un 50%. El análisis de competencia muestra que solo 2 cafeterías en la zona ofrecen espacios de trabajo adecuados, creando una ventaja competitiva clara. ROI proyectado: 120% en 12 meses. ¡Una inversión estratégica para capturar un nicho en crecimiento! 💼"
+        }
+      }
+    },
+    {
+      "id": "pyme-404",
+      "nombre": "Helados 'Maná' - Doble vía la guardia",
+      "categoria": "Heladería",
+      "rating": 95,
+      "descripcionCorta": "Helados de pura fruta de temporada: achachairú, guayabera, manga y más.",
+      "necesidad": "Compra de un nuevo congelador de exhibición para ampliar la oferta de sabores.",
+      "ubicacion": {
+        "lat": -17.7833,
+        "lng": -63.1821
+      },
+      "montoNecesario": 1800,
+      "ai_analysis": {
+        "success": true,
+        "analysis": {
+          "relevance_score": 96,
+          "analysis_summary": "🍦 Calificación excepcional de 4.8/5 con 300+ reseñas y enfoque único en frutas de temporada. El análisis de ventas muestra que el 60% de los clientes piden sabores que actualmente no pueden ofrecer por limitaciones de espacio. El nuevo congelador permitirá ofrecer 15 sabores adicionales, incrementando las ventas en un 75%. Los datos de demanda estacional revelan picos del 90% en verano, pero el 40% de ventas se mantiene consistentemente todo el año. La inversión se recuperará en 10 meses con un ROI del 200%. ¡Una oportunidad de oro en un mercado con alta demanda y baja competencia directa! 🌟"
+        }
+      }
+    },
+    {
+      "id": "pyme-505",
+      "nombre": "InnovaSoft Camba",
+      "categoria": "Tecnología",
+      "rating": 98,
+      "descripcionCorta": "Pequeña consultora de software creando sistemas de punto de venta para PYMES.",
+      "necesidad": "Capital para el lanzamiento de su nueva app de gestión de inventario 'MiTienda'.",
+      "ubicacion": {
+        "lat": -17.7833,
+        "lng": -63.1821
+      },
+      "montoNecesario": 5000,
+      "ai_analysis": {
+        "success": true,
+        "analysis": {
+          "relevance_score": 98,
+          "analysis_summary": "💻 Calificación premium de 4.9/5 con 150+ proyectos exitosos demuestran una trayectoria sólida en el sector tecnológico. El análisis de mercado revela que solo el 15% de las PYMES locales tienen sistemas de gestión digital implementados, creando un mercado potencial de más de 2,500 empresas. La app 'MiTienda' aborda una necesidad crítica con funcionalidades específicas diseñadas para el mercado local. Los datos de adopción tecnológica muestran un crecimiento del 300% en los últimos 2 años. La inversión se recuperará en 18 meses con un ROI del 350%. ¡Una oportunidad única en el sector tecnológico con potencial de expansión regional! 🚀"
+        }
+      }
+    },
+    {
+      "id": "pyme-606",
+      "nombre": "Artesanías 'Manos de Chiquitos'",
+      "categoria": "Retail",
+      "rating": 82,
+      "descripcionCorta": "Hamacas, tallados en madera y tejidos únicos de la región chiquitana.",
+      "necesidad": "Fondos para comprar materia prima y participar en la FEXPOCRUZ.",
+      "ubicacion": {
+        "lat": -17.7833,
+        "lng": -63.1821
+      },
+      "montoNecesario": 700,
+      "ai_analysis": {
+        "success": true,
+        "analysis": {
+          "relevance_score": 81,
+          "analysis_summary": "🎨 Calificación de 4.2/5 con 90 reseñas destacan la calidad artesanal única de sus productos. El análisis de mercado turístico muestra que el 65% de los visitantes buscan productos artesanales auténticos, pero solo el 20% encuentra opciones de calidad superior. La participación en FEXPOCRUZ expondrá los productos a más de 50,000 visitantes potenciales, incrementando las ventas en un 200%. Los datos de exportación de artesanías muestran un crecimiento del 150% en los últimos 3 años. La inversión se recuperará en 6 meses con un ROI del 180%. ¡Una oportunidad que combina perfectamente rentabilidad con preservación cultural! 🌍"
+        }
+      }
+    },
+    {
+      "id": "pyme-707",
+      "nombre": "Lava-Autos 'El Chubi'",
+      "categoria": "Servicios",
+      "rating": 86,
+      "descripcionCorta": "Servicio de limpieza detallado para vehículos. ¡Tu auto queda chubi-dubí!",
+      "necesidad": "Instalación de un sistema de reciclaje de agua para ser más ecológicos.",
+      "ubicacion": {
+        "lat": -17.7833,
+        "lng": -63.1821
+      },
+      "montoNecesario": 2800,
+      "ai_analysis": {
+        "success": true,
+        "analysis": {
+          "relevance_score": 84,
+          "analysis_summary": "🚗 Calificación de 4.4/5 con 180 reseñas demuestran un servicio de calidad consistente y confiable. El análisis de mercado muestra que el 70% de los clientes valoran significativamente los servicios eco-friendly, pero solo el 10% de los lava-autos ofrecen sistemas de reciclaje de agua. La implementación del sistema reducirá costos operativos en un 40% y atraerá un 50% más de clientes conscientes del medio ambiente. Los datos de crecimiento del mercado de servicios automotrices muestran un incremento del 25% anual. La inversión se recuperará en 14 meses con un ROI del 160%. ¡Una inversión inteligente que combina rentabilidad con responsabilidad ambiental! 🌱"
+        }
+      }
+    },
+    {
+      "id": "pyme-808",
+      "nombre": "Biomarket Urubó",
+      "categoria": "Salud",
+      "rating": 90,
+      "descripcionCorta": "Mercado de productos orgánicos, sin gluten y veganos en la zona del Urubó.",
+      "necesidad": "Importación de una nueva línea de suplementos y vitaminas de EEUU.",
+      "ubicacion": {
+        "lat": -17.7833,
+        "lng": -63.1821
+      },
+      "montoNecesario": 4500,
+      "ai_analysis": {
+        "success": true,
+        "analysis": {
+          "relevance_score": 91,
+          "analysis_summary": "🥗 Calificación líder de 4.6/5 con 220 reseñas la posicionan como referente en productos orgánicos de calidad. El análisis de tendencias de salud muestra que el 45% de la población busca activamente productos orgánicos, pero solo el 5% tiene acceso a opciones de calidad superior. La nueva línea de suplementos capturará el 30% del mercado de vitaminas premium, incrementando las ventas en un 120%. Los datos de crecimiento del mercado saludable muestran un incremento del 200% en los últimos 2 años. La inversión se recuperará en 16 meses con un ROI del 220%. ¡Una oportunidad en un sector de alto crecimiento con demanda claramente insatisfecha! 💪"
+        }
+      }
+    }
+  ],
+  "features": [
+    {
+      "id": 1,
+      "title": "Invierte en tu Comunidad",
+      "description": "Descubre proyectos locales con alto potencial de crecimiento y sé parte de su éxito.",
+      "icon": "pi pi-chart-line",
+      "ctaText": "Ver Oportunidades"
+    },
+    {
+      "id": 2,
+      "title": "¿Tienes una PYME?",
+      "description": "Consigue el capital que necesitas para llevar tu negocio al siguiente nivel con A.L.A.S.",
+      "icon": "pi pi-building",
+      "ctaText": "Registra tu Negocio"
+    },
+    {
+      "id": 3,
+      "title": "Inteligencia Artificial a tu Servicio",
+      "description": "Nuestro sistema analiza cientos de variables para ofrecerte los ratings de inversión más confiables.",
+      "icon": "pi pi-microchip",
+      "ctaText": "Conoce la Tecnología"
+    }
+  ]
+}

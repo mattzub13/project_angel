@@ -11,6 +11,7 @@ import { type LatLngExpression, Icon } from "leaflet";
 import iconUrl from "leaflet/dist/images/marker-icon.png";
 import iconRetinaUrl from "leaflet/dist/images/marker-icon-2x.png";
 import shadowUrl from "leaflet/dist/images/marker-shadow.png";
+import { Dropdown } from "primereact/dropdown";
 
 const DefaultIcon = new Icon({
   iconUrl,
@@ -67,33 +68,84 @@ function LocationMarker({
   );
 }
 
+export interface Place {
+  id: string;
+  nombre: string;
+  categoria: string;
+  lat: number;
+  lng: number;
+}
+
 interface MapPickerProps {
   onLocationSelect: (lat: number, lng: number) => void;
   center: LatLngExpression;
   userLocation: LatLngExpression | null;
+  places?: Place[];
 }
+
+const mapOptions = [
+  { label: "OpenStreetMap", value: "osm" },
+  { label: "Google Maps", value: "google" },
+];
+
+const getTileLayerUrl = (mapType: string) => {
+  switch (mapType) {
+    case "google":
+      return "https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}";
+    case "osm":
+    default:
+      return "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png";
+  }
+};
 
 export const MapPicker = ({
   onLocationSelect,
   center,
   userLocation,
+  places = [],
 }: MapPickerProps) => {
-  return (
-    <MapContainer
-      center={center}
-      zoom={13}
-      style={{ height: "400px", width: "100%" }}
-      className="rounded-xl"
-    >
-      <ChangeView center={center} zoom={13} />
-      <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-      <LocationMarker onLocationSelect={onLocationSelect} />
+  const [selectedMap, setSelectedMap] = useState("osm");
 
-      {userLocation && (
-        <Marker position={userLocation} icon={UserLocationIcon}>
-          <Popup>¡Estás aquí wachin!</Popup>
-        </Marker>
-      )}
-    </MapContainer>
+  return (
+    <div className="space-y-4">
+      {/* Map Type Selector */}
+      <div className="flex justify-end">
+        <Dropdown
+          value={selectedMap}
+          options={mapOptions}
+          onChange={(e) => setSelectedMap(e.value)}
+          placeholder="Seleccionar mapa"
+          className="w-48"
+        />
+      </div>
+      
+      {/* Map Container */}
+      <MapContainer
+        center={center}
+        zoom={13}
+        style={{ height: "400px", width: "100%" }}
+        className="rounded-xl"
+        key={selectedMap} // Force re-render when map type changes
+      >
+        <ChangeView center={center} zoom={13} />
+        <TileLayer url={getTileLayerUrl(selectedMap)} />
+        <LocationMarker onLocationSelect={onLocationSelect} />
+
+        {userLocation && (
+          <Marker position={userLocation} icon={UserLocationIcon}>
+            <Popup>¡Estás aquí wachin!</Popup>
+          </Marker>
+        )}
+
+        {places.map((place) => (
+          <Marker key={place.id} position={[place.lat, place.lng]} icon={DefaultIcon}>
+            <Popup>
+              <b>{place.nombre}</b><br />
+              {place.categoria}
+            </Popup>
+          </Marker>
+        ))}
+      </MapContainer>
+    </div>
   );
 };
