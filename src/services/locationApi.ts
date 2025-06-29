@@ -4,9 +4,7 @@ import { createApi } from "@reduxjs/toolkit/query/react";
 export const locationApi = createApi({
   reducerPath: "locationApi",
   baseQuery: fetchBaseQuery({
-    baseUrl:
-      "",
-    mode: "cors",
+    mode:"no-cors"
   }),
   endpoints: (builder) => ({
     getAllPlaces: builder.mutation({
