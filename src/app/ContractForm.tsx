@@ -4,7 +4,6 @@ import { InputText } from 'primereact/inputtext';
 import { Dropdown } from 'primereact/dropdown';
 import { motion } from 'framer-motion';
 import { type Pyme } from '../services/mockDataService';
-import TypewriterText from '../components/TypewriterText';
 import ContractPreviewModal from '../components/ContractPreviewModal';
 import { PDF_BASE64_EXAMPLE } from '../data/pdf-base64-example';
 
@@ -103,13 +102,13 @@ Este contrato ha sido generado automáticamente por el sistema ALAS.
     }, 500);
   };
 
-  const openPreviewModal = () => {
-    if (!generatedContract) {
-      alert('Primero genera el contrato para ver la preview');
-      return;
-    }
-    setShowPreviewModal(true);
-  };
+  // const openPreviewModal = () => {
+  //   if (!generatedContract) {
+  //     alert('Primero genera el contrato para ver la preview');
+  //     return;
+  //   }
+  //   setShowPreviewModal(true);
+  // };
 
   return (
     <>
